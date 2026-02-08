@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="task" />
+    <button onclick="add()">Thêm</button>
+    <ul id="list"></ul>
+
+    <script>
+      let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+      function render() {
+        list.innerHTML = "";
+        tasks.forEach((t, i) => {
+          list.innerHTML += `<li>${t}
+      <button onclick="remove(${i})">X</button>
+    </li>`;
+        });
+      }
+
+      function add() {
+        tasks.push(task.value);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        task.value = "";
+        render();
+      }
+
+      function remove(i) {
+        tasks.splice(i, 1);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        render();
+      }
+
+      render();
+    </script>
+  </body>
+</html>

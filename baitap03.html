@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      .firework {
+        width: 20px;
+        height: 20px;
+        background: red;
+        border-radius: 50%;
+        animation: boom 1s infinite;
+      }
+      @keyframes boom {
+        from {
+          transform: scale(1);
+          opacity: 1;
+        }
+        to {
+          transform: scale(3);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <input id="guess" />
+    <button onclick="check()">Đoán</button>
+    <p id="msg"></p>
+    <p id="count"></p>
+    <div id="fw"></div>
+
+    <script>
+      let number = Math.floor(Math.random() * 100) + 1;
+      let tries = 0;
+
+      function check() {
+        const g = Number(guess.value);
+        tries++;
+        count.textContent = "Số lần đoán: " + tries;
+
+        if (g > number) msg.textContent = "Quá cao";
+        else if (g < number) msg.textContent = "Quá thấp";
+        else {
+          msg.textContent = "Chính xác!";
+          fw.innerHTML = '<div class="firework"></div>';
+        }
+      }
+    </script>
+  </body>
+</html>
