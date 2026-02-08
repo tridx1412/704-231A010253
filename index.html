@@ -37,6 +37,12 @@
     <ul class="menu">
       <li onclick="showImage()">Bài tập 20</li>
       <li onclick="showLink()">Bài tập 21</li>
+      <li><a href="baitap01.html" class="btn">Bài tập 1</a>
+</li>
+      <Li><a href="baitap02.html" class="btn">Bài tập 2</a>
+</Li>
+      <Li><a href="baitap03.html" class="btn">Bài tập 3</a>
+</Li>
     </ul>
 
     <div id="content"></div>
@@ -44,15 +50,14 @@
     <script>
       function showImage() {
         document.getElementById("content").innerHTML = `
-    <img src="b20.png" alt="Hình ảnh minh họa">
+    <img src="images/b20.png" alt="Hình ảnh minh họa">
   `;
       }
 
       function showLink() {
         document.getElementById("content").innerHTML = `
-    <a href="https://tridx1412.github.io/baitap21/" target="_blank">
-      https://github.com
-    </a>
+    <a href="https://tridx1412.github.io/baitap21/">
+    Click để sang bài 21</a>
   `;
       }
     </script>
